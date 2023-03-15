@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">TikTok</string>
+
+<!--    fragment icon name-->
+    <string name="home">home</string>
+    <string name="upload">upload</string>
+    <string name="video">video</string>
+
+<!--    content description-->
+    <string name="dp">dp of user</string>
+    <string name="bio">Bio:</string>
+    <string name="uploadVideos">Uploaded Videos</string>
+
+<!--    simple text-->
+    <string name="choose_mode_of_video">Choose mode for your video</string>
+    <string name="mode_private">private</string>
+    <string name="mode_public">public</string>
+    <string name="choose_file">Choose File</string>
+    <string name="title">Title</string>
+
+    <!--    web client-->
+    <string name="web_client">368266269201-2e9v843br6cns9riuaat3vo80580h2j0.apps.googleusercontent.com</string>
+
+</resources>
