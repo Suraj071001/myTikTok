@@ -37,7 +37,7 @@ class VideoFragment : Fragment() {
         val context = container!!.context
 
         fireStoreRef.collection("AllVideos").get()
-            .addOnSuccessListener {snapshot->
+            .addOnSuccessListener {snapshot ->
                 GlobalScope.launch {
                     var deferredList = mutableListOf<VideoData>()
                     for (document in snapshot){
@@ -46,8 +46,9 @@ class VideoFragment : Fragment() {
                             val photo = document.data["userProfile"]
                             val videoUri = document.data["videoUri"]
                             val like = document.data["like"]
+                            val uniqueId = document.data["uniqueId"]
 
-                            VideoData(name as String,Uri.parse(videoUri as String),Uri.parse(photo as String),like as Long)
+                            VideoData(name as String,Uri.parse(videoUri as String),Uri.parse(photo as String),like as Long,uniqueId as String)
                         }
                         deferredList.add(videoData.await())
                     }

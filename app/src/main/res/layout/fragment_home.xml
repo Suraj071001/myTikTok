@@ -11,15 +11,22 @@
         tools:context=".fragment.HomeFragment">
 
 
-        <ImageView
-            android:id="@+id/ivUserProfile"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvProfile"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/round_image"
-            android:src="@drawable/profile_icon"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="TODO" />
+            app:cardCornerRadius="40dp">
+
+            <ImageView
+                android:id="@+id/ivUserProfile"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/profile_icon" />
+
+        </androidx.cardview.widget.CardView>
+
 
         <TextView
             android:id="@+id/tvUserName"
@@ -28,7 +35,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:fontFamily="@font/aclonica"
-            app:layout_constraintStart_toEndOf="@+id/ivUserProfile"
+            app:layout_constraintStart_toEndOf="@+id/cvProfile"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="TextView" />
 
@@ -40,7 +47,7 @@
             android:text="@string/bio"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/ivUserProfile"
+            app:layout_constraintStart_toEndOf="@+id/cvProfile"
             app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
 
         <TextView
@@ -49,7 +56,7 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:maxLines="3"
-            app:layout_constraintStart_toEndOf="@+id/ivUserProfile"
+            app:layout_constraintStart_toEndOf="@+id/cvProfile"
             app:layout_constraintTop_toBottomOf="@+id/notForUse"
             tools:text="date of birth \n love music" />
 
@@ -71,9 +78,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivUserProfile" />
+            app:layout_constraintTop_toBottomOf="@+id/cvProfile" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPublicVideos"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"

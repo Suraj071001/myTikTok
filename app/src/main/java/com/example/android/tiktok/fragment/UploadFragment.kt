@@ -3,6 +3,7 @@ package com.example.android.tiktok.fragment
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -88,13 +89,14 @@ class UploadFragment : Fragment() {
 
                                 val videoData = hashMapOf(
                                     "name" to userName,
-                                    "userProfile" to userProfile.toString(),
                                     "videoUri" to it.toString(),
-                                    "like" to 3
+                                    "userProfile" to userProfile,
+                                    "like" to 0,
+                                    "uniqueId" to "$userId$time"
                                 )
                                 
-                                fireStoreRef.collection(userId!!)
-                                    .add(videoData)
+                                fireStoreRef.collection(userId!!).document("$userId$time")
+                                    .set(videoData)
                                     .addOnSuccessListener {
                                         Log.d(TAG, "onActivityResult: collection successfully added in id $userId ")
                                     }.addOnFailureListener{
@@ -102,8 +104,8 @@ class UploadFragment : Fragment() {
                                     }
 
                                 if(mode == "public"){
-                                    fireStoreRef.collection("AllVideos")
-                                        .add(videoData)
+                                    fireStoreRef.collection("AllVideos").document("$userId$time")
+                                        .set(videoData)
                                         .addOnSuccessListener {
                                             Log.d(TAG, "onActivityResult: collection successfully added in id $userId ")
                                         }.addOnFailureListener{
